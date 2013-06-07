@@ -160,7 +160,7 @@ module Fog
 
 
           response = @connection.request(opts)
-          if response.headers["Content-Type"] == "application/json"
+          if response.headers["Content-Type"].start_with?('application/json')
             response.body = json_decode(response.body)
           end
 
